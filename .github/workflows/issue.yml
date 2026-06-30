@@ -1,7 +1,7 @@
 name: Issue Workflow
 on:
   issues:
-    job:
+    jobs:
       runs-on: ubuntu-latest
       steps:
         - name: Issue Created
