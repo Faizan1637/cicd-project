@@ -1,0 +1,23 @@
+on:
+  # Trigger the workflow on push or pull request,
+  # but only for the main branch
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  # Also trigger on page_build, as well as release created events
+  page_build:
+  release:
+    types: # This configuration doesn't affect the page_build event above
+      - created
+jobs:
+  triggercheck:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Check Created
+        run: echo "Trigger Created"
+      - name: Event Details
+        run: echo "Event Details ${{ toJson(github.event) }}"
+    
